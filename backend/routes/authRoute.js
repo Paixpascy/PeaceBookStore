@@ -3,6 +3,7 @@ const mongoose=require('mongoose')
 const router=express.Router()
 const authModel= require('../models/authmodel')
 const jwt=require('jsonwebtoken')
+const authMiddleware = require('../middleware/authMiddleware')
 require('dotenv').config()
 
 router.post('/register',async(req,res)=>{
@@ -42,6 +43,7 @@ router.get('/getUsers',async(req,res) =>{
         if(!users){
             return res.status(404).send({error:'users not found'})
         }
+        res.status(202).json({data:users})
     } catch (error) {
         res.status(500).send({error:`error getting users due to ${error.message}`})
     }
@@ -91,13 +93,50 @@ router.get('/getUser/:id',async(req,res) =>{
 })
 
 router.put('/editUser/:id',async(req,res) =>{
-    const {id}= req.params
-    const{role}=req.params
+    try {
+        const {id}= req.params
+        const{role}=req.body
 
-    const editedUser= await authModel.findByIdAndUpdate(id,{role},{new:true})
-    if(!editedUser){
-        return res.status(404).send({message:'unable to edit user role'})
+        const editedUser= await authModel.findByIdAndUpdate(id,{role},{new:true})
+        if(!editedUser){
+            return res.status(404).send({message:'unable to edit user role'})
+        }
+        res.status(202).json({data:editedUser.role})
+
+    } catch (error) {
+        res.status(500).send({error:`error editing role due to ${error.message}`})
     }
-    res.status(202).json({data:editedUser.role})
+})
+
+router.delete('/unregister',authMiddleware,async(req,res) =>{
+    try {
+        const id=req.user.id
+        const deleteUser=await authMiddleware.findByIdAndDelete(id)
+
+        if(!deleteUser){
+            return res.status(404).send({message:'unable to delete account'})
+        }
+        res.status(202).json({data:deleteUser},{message:'account deleted'})
+
+    } catch (error) {
+        res.status(500).send({error:`error unregistering due to ${error.message}`})
+    }
+})
+
+router.get('/userInfo/:id',authMiddleware,async(req,res) =>{
+    try {
+        const id=req.user.id
+        console.log('user id is',id)
+        const user= await authMiddleware.findById(id)
+        
+        if(!user){
+            return res.status(500).send({message:'user information not found'})
+        }
+        res.status(202).json({data:user}
+            
+        )
+    } catch (error) {
+        res.status(500).send({error:`error getting user information due to ${error.message}`})
+    }
 })
 module.exports=router

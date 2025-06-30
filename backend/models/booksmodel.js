@@ -21,6 +21,11 @@ const bookSchema=mongoose.Schema({
         type:String,
         required:true
     },
+
+    stoke:{
+        type:Number,
+        required:true
+    },
 })
 
 const bookModel=mongoose.model('stoke',bookSchema)

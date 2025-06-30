@@ -2,10 +2,6 @@ const mongoose=require('mongoose')
 const express= require('express')
 
 const authSchema=mongoose.Schema({
-    /*UserId:{
-        type:String,
-        required:true
-    },*/
     name:{
         type:String,
         required:true

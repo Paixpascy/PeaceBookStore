@@ -8,7 +8,7 @@ router.get('/',(req,res)=>{
 })
 
 //reading
-router.get('/getbook',async(req,res)=>{
+router.get('/getbooks',async(req,res)=>{
     try {
         const item= await bookModel.find()
          res.status(202).send({data:item})
@@ -33,8 +33,8 @@ router.get('/getbook/:id',async(req,res)=>{
 //posting
 router.post('/addbook',async(req,res)=>{
     try {
-        const {picture, name,author, price}=req.body
-        if(!picture || !name || !author || !price){
+        const {picture, name,author, price, stoke}=req.body
+        if(!picture || !name || !author || !price ||!stoke){
             return res.status(404).send({message:"all fields required"})
         }
         const newItem= new bookModel({
@@ -42,6 +42,7 @@ router.post('/addbook',async(req,res)=>{
             name,
             author,
             price,
+            stoke,
         })
         await newItem.save()
         res.status(202).json({data:newItem})
@@ -52,12 +53,12 @@ router.post('/addbook',async(req,res)=>{
 
 router.put('/editbook/:id',async(req,res)=>{
     try {
-        const {picture, name, author, price}=req.body
-        if(!picture ||! name ||!author ||!price){
+        const {picture, name, author, price, stoke}=req.body
+        if(!picture ||! name ||!author ||!price ||!stoke){
             return res.status(404).send({message:"all fields nedded"})
         }
         const { id }=req.params
-        const updatedItem= await bookModel.findByIdAndUpdate(id,{$set:{picture, name, author, price}},{new:true})
+        const updatedItem= await bookModel.findByIdAndUpdate(id,{$set:{picture, name, author, price, stoke}},{new:true})
         if(!updatedItem){
             return res.status(404).send({message:"book not found"})
         }
