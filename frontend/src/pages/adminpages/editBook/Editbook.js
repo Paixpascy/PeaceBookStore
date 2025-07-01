@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const Editbook = () => {
     const[editedBook,setEditedBook]=useState({
-        picture:'', name:'', author:'', price:'', stoke:'',
+        picture:'', name:'', author:'', category:'', price:'', stoke:'',
     }) 
     const handleBookDetails=(e)=>{
         setEditedBook({...editedBook,[e.target.name]:e.target.value})
@@ -50,7 +50,7 @@ const Editbook = () => {
             toast.success('book details edited successfully')
             navigate('/booklist')
         } catch (error) {
-            toast.error('unavle to edit book')
+            toast.error('unable to edit book')
         }
     }
   return (
@@ -69,15 +69,25 @@ const Editbook = () => {
                     <label>book name</label>
                     <input type='text' name='name' value={editedBook.name} onChange={handleBookDetails}></input>
                 </div>
-                    <div className='bookname'>
+                <div className='bookname'>
                     <label>book author</label>
                     <input type='text' name='author' value={editedBook.author} onChange={handleBookDetails}></input>
                 </div>
-                    <div className='bookname'>
+                 <div className='bookcategory'>
+                    <label>book category</label>
+                    <select type='text' name='category' value={editedBook.category} onChange={handleBookDetails}>
+                        <option>Children</option>
+                        <option>Faith</option>
+                        <option>History</option>
+                        <option>Poems</option>
+                        <option>Cookbooks</option>
+                    </select>
+                </div>
+                <div className='bookname'>
                     <label>book price</label>
                     <input type='text' name='price' value={editedBook.price} onChange={handleBookDetails}></input>
                 </div>
-                    <div className='bookname'>
+                <div className='bookname'>
                     <label>amount available</label>
                     <input type='number' name='stoke' value={editedBook.stoke} onChange={handleBookDetails}></input>
                 </div>

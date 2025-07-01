@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Addbook = () => {
         const[bookDetails,setBookDetails]=useState({
-        name:'',picture:'', author:'', price:'', stoke:''
+        name:'',picture:'', author:'', category:'', price:'', stoke:''
     })
     const handleBookDetails=((e) =>{
         setBookDetails({...bookDetails,[e.target.name]:e.target.value})
@@ -19,7 +19,7 @@ const Addbook = () => {
     const saveBook=(async(e) =>{
         e.preventDefault()
         try {
-            if(!bookDetails.name|| !bookDetails.author|| !bookDetails.price|| !picture ||!bookDetails.stoke){
+            if(!bookDetails.name|| !bookDetails.author|| !bookDetails.category|| !bookDetails.price|| !picture ||!bookDetails.stoke){
                 toast.error('missing fields')
                 return
             }
@@ -64,6 +64,16 @@ const Addbook = () => {
         <div className='bookauthor'>
             <label> book author</label>
             <input type='text' name='author' value={bookDetails.author} onChange={handleBookDetails}/>
+        </div>
+            <div className='bookcategory'>
+            <label> book category</label>
+            <select type='text' name='category' value={bookDetails.category} onChange={handleBookDetails}>
+                <option>Children</option>
+                <option>Faith</option>
+                <option>History</option>
+                <option>Poems</option>
+                <option>Cookbooks</option>
+            </select>
         </div>
         <div className='bookprice'>
             <label> book price</label>

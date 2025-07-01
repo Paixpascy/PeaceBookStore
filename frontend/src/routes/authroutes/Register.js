@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [registerDetails,setRegisterDetails]=useState({
@@ -10,6 +11,7 @@ const Register = () => {
         setRegisterDetails({...registerDetails,[e.target.name]:e.target.value})
     }
 
+    const navigate=useNavigate()
     const submitData=async(e)=>{
         e.preventDefault()
         const validEmail=/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
@@ -27,6 +29,7 @@ const Register = () => {
             if(registerResponse){
                 setRegisterDetails(registerResponse.data.data)
                 toast.success('sign up successful')
+                navigate('/login')
             }
             
         } catch (error) {
@@ -55,7 +58,7 @@ const Register = () => {
                     <input type='text' name='password' value={registerDetails.password} onChange={handleregistration}/>
                 </div>
                 <div className='savebtn'>
-                    <button>submit details</button>
+                    <button>sign up</button>
                 </div>
             </form>
         </div>

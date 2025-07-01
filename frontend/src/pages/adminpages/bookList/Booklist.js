@@ -50,6 +50,7 @@ const Booklist = () => {
                     <th>picture</th>
                     <th>name</th>
                     <th>author</th>
+                    <th>category</th>
                     <th>price</th>
                     <th>stoke</th>
                     <th>actions</th>
@@ -61,6 +62,7 @@ const Booklist = () => {
                         <td><img src={book.picture} alt='' height='120px'></img></td>
                         <td>{book.name}</td>
                         <td>{book.author}</td>
+                        <td>{book.category}</td>
                         <td>{book.price}</td>
                         <td>{book.stoke}</td>
                         <td>
