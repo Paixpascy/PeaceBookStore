@@ -33,14 +33,15 @@ router.get('/getbook/:id',async(req,res)=>{
 //posting
 router.post('/addbook',async(req,res)=>{
     try {
-        const {picture, name,author, price, stoke}=req.body
-        if(!picture || !name || !author || !price ||!stoke){
+        const {picture, name,author, category, price, stoke}=req.body
+        if(!picture || !name || !author || !category || !price ||!stoke){
             return res.status(404).send({message:"all fields required"})
         }
         const newItem= new bookModel({
             picture,
             name,
             author,
+            category,
             price,
             stoke,
         })
@@ -53,12 +54,12 @@ router.post('/addbook',async(req,res)=>{
 
 router.put('/editbook/:id',async(req,res)=>{
     try {
-        const {picture, name, author, price, stoke}=req.body
-        if(!picture ||! name ||!author ||!price ||!stoke){
+        const {picture, name, author, category, price, stoke}=req.body
+        if(!picture ||! name ||!author ||!category ||!price ||!stoke){
             return res.status(404).send({message:"all fields nedded"})
         }
         const { id }=req.params
-        const updatedItem= await bookModel.findByIdAndUpdate(id,{$set:{picture, name, author, price, stoke}},{new:true})
+        const updatedItem= await bookModel.findByIdAndUpdate(id,{$set:{picture, name, author, category, price, stoke}},{new:true})
         if(!updatedItem){
             return res.status(404).send({message:"book not found"})
         }
