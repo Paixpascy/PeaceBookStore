@@ -14,6 +14,10 @@ import Books from './pages/userpages/stoke/Books';
 import Bookscategories from './pages/userpages/stoke/Bookscategories';
 import Protectedroute from './routes/authroutes/Protectedroute';
 import Bookdetails from './pages/userpages/stoke/Bookdetails';
+import Cart from './pages/userpages/cart/Cart';
+import Myorders from './pages/userpages/orders/Myorders';
+import Placeorder from './pages/userpages/orders/Placeorder';
+import Ordersmade from './pages/adminpages/ordersMade/Ordersmade';
 
 
 function App() {
@@ -31,6 +35,9 @@ function App() {
     <Route path='/history' element={<Bookscategories category='History'/>}/>
     <Route path='/poems' element={<Bookscategories category='Poems'/>}/>
     <Route path='/cookbooks' element={<Bookscategories category='Cookbooks'/>}/>
+    <Route path='/cart'element={<Cart/>}/>
+    <Route path='/placeorder' element={<Placeorder/>}/>
+    <Route path='/myorders'element={<Myorders/>}/>
 
     {/*shared routes */}
     <Route path='/register' element={<Register/>}/>
@@ -42,6 +49,7 @@ function App() {
     <Route path='/booklist' element={<Protectedroute><Booklist/></Protectedroute>}/>
     <Route path='/editbook/:id' element={<Protectedroute><Editbook/></Protectedroute>}/>
     <Route path='/users/:id' element={<Protectedroute><Users/></Protectedroute>}/>
+    <Route path='/ordersmade' element={<Protectedroute><Ordersmade/></Protectedroute>}/>
   </Routes>
   </BrowserRouter>
   </>

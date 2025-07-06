@@ -12,12 +12,15 @@ app.use(cors())
 
 const bookModel=require('./models/booksmodel')
 const authModel=require('./models/authmodel')
+const ordersModel=require('./models/ordersmodel')
 
 const AuthRoute=require('./routes/authRoute')
 const BookRoute=require('./routes/booksRoute')
+const OrdersRoute=require('./routes/ordersRoute')
 
 app.use('/authRoute',AuthRoute)
 app.use('/booksRoute',BookRoute)
+app.use('/ordersRoute',OrdersRoute)
 
 const connectDb=async()=>{
     try{

@@ -13,9 +13,10 @@ const Bookscategories = (props) => {
         <h2>{props.category} category</h2>
       </div>
       <div className='categorycontent'>
-        {allBooks && allBooks.map((books,index)=>{
+        {allBooks && allBooks.map((books)=>{
           if(props.category === books.category){
-            return <Link to="/" key={index}><Item picture={books.picture} name={books.name}/></Link>
+            return <Link to={`/bookdetails/${books._id}`} key={books._id}><Item picture={books.picture} name={books.name}
+            author={books.author} category={books.category} price={books.price} stoke={books.stoke}/></Link>
           }else{
             return null
           }
