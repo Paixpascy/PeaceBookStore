@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
@@ -5,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [registerDetails,setRegisterDetails]=useState({
-        email:'', password:'', name:''
+        email:'', password:'', name:'', phoneNumber:'', address:'', gender:'', Dob:''
     })
     const handleregistration=(e)=>{
         setRegisterDetails({...registerDetails,[e.target.name]:e.target.value})
@@ -56,6 +57,26 @@ const Register = () => {
                     <div className='username'>
                     <label>password</label>
                     <input type='text' name='password' value={registerDetails.password} onChange={handleregistration}/>
+                </div>
+                <div className='username'>
+                    <label>gender</label>
+                    <select name='gender' value={registerDetails.gender} onChange={handleregistration}>
+                        <option></option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div className='username'>
+                    <label>date of birth</label>
+                    <input type='date' name='Dob' value={registerDetails.Dob} onChange={handleregistration}/>
+                </div>
+                <div className='username'>
+                    <label>address</label>
+                    <input type='text' name='address' value={registerDetails.address} onChange={handleregistration}/>
+                </div>
+                <div className='username'>
+                    <label>phone number</label>
+                    <input type='text' name='phoneNumber' value={registerDetails.phoneNumber} onChange={handleregistration}/>
                 </div>
                 <div className='savebtn'>
                     <button>sign up</button>

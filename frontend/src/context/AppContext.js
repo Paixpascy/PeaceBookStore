@@ -17,8 +17,16 @@ const AppContextProvider = (props) => {
     const[isLoggedIn,setisLoggedin]=useState(false)
     const[allBooks,setAllBooks]=useState({})
     const[cartData,setCartData]=useState({})
+    const[userData,setUserData]=useState()
 
     useEffect(()=>{
+        const userLogin=localStorage.getItem('token')
+        if(userLogin){
+          setisLoggedin(true)
+        }else{
+          setisLoggedin(false)
+        }
+        
         axios.get('http://127.0.0.1:3004/booksRoute/getbooks')
         .then((response)=>{
             setAllBooks(response.data.data)
@@ -67,8 +75,36 @@ const AppContextProvider = (props) => {
     const clearCart=()=>{
       setCartData({})
     }
+
+    const UserInfo=async(id)=>{
+      try {
+      const token=localStorage.getItem('token')
+      const userInfo=localStorage.getItem('userdata')
+      const getInfo= await axios.get(`http://127.0.0.1:3004/authRoute/userInfo/${id}`,{
+        headers:{
+          Authorization: `Bearer ${token}`
+        }
+      })
+      if(getInfo.status===202){
+        setUserData(getInfo.data.data)
+        console.log('user data is',getInfo)
+        const storedInfo=JSON.parse(userInfo)
+        setUserData(storedInfo)
+        console.log('parsed data is',storedInfo)
+      }
+      } catch (error) {
+        console.log(`error getting user info due to ${error}`)
+      }
+    }
+
+    useEffect(()=>{
+      const storeData=localStorage.getItem('userdata')
+      const data=JSON.parse(storeData)
+      setUserData(data)
+    },[])
+
     const conntextValue={isLoggedIn,setisLoggedin,allBooks,setAllBooks,addToCart,
-      totalAmount,updatedQuantity,deleteFromCart,cartData,clearCart}
+      totalAmount,updatedQuantity,deleteFromCart,cartData,clearCart,userData,UserInfo}
   return (
     <div>
       <AppContext.Provider value={conntextValue}>

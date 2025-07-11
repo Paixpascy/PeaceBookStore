@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
 
 const Login = () => {
-  const {isLoggedIn,setisLoggedin}=useContext(AppContext)
+  const {isLoggedIn,setisLoggedin,UserInfo}=useContext(AppContext)
   const[loginDetails,setLoginDetails]=useState({
     email:'', password:''
    
@@ -34,7 +34,10 @@ const Login = () => {
       if(loginResponse.data.token && loginResponse.data.data){
         localStorage.setItem('token',loginResponse.data.token)
         localStorage.setItem('role',loginResponse.data.role)
-        setLoginDetails(true)
+        localStorage.setItem('userdata',JSON.stringify(loginResponse.data.data))
+        console.log('id from login is',loginResponse.data.data._id)
+        setisLoggedin(true)
+       await UserInfo(loginResponse.data.data._id)
       }
       if(loginResponse.data.role==='admin'){
         setLoginDetails(loginResponse.data.data)
@@ -42,11 +45,13 @@ const Login = () => {
         navigate('/admin')
       }else{
         navigate('/')
+        return;
       }
     } catch (error) {
       toast.error('unable to login')
     }
    }
+
   return (
     <>
     <div className='logincontent'>

@@ -35,7 +35,7 @@ const Users = () => {
         if(!selectedRole)
             return;
         try {
-            const newRole= await axios.put(`http://127.0.0.1:3004/authRoute/editUser/${selectedRole._id}`,{
+            const newRole= await axios.put(`http://127.0.0.1:3004/authRoute/editrole/${selectedRole._id}`,{
                 role:changeRole[selectedRole._id]
             })
             if(newRole){

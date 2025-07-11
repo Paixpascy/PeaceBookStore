@@ -9,7 +9,6 @@ const Item = (props) => {
         <p>author:{props.author}</p>
         <p>category:{props.category}</p>
         <p>price:{props.price}</p>
-        <p>amount available{props.stoke}</p>
     </div>
     </>
   )

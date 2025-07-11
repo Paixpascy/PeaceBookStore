@@ -8,7 +8,7 @@ require('dotenv').config()
 
 router.post('/register',async(req,res)=>{
     try {
-        const{name,email,password}=req.body
+        const{name,email,password,Dob,address,gender,phoneNumber}=req.body
         if(!name || !email || !password ){
             return res.status(404).send({message:'missing field'})
         }
@@ -27,6 +27,10 @@ router.post('/register',async(req,res)=>{
             name,
             email,
             password,
+            Dob,
+            gender,
+            address,
+            phoneNumber
         })
         await newUser.save()
 
@@ -73,7 +77,7 @@ router.post('/login',async(req,res) =>{
 router.post('/logout',async(req,res) =>{
     try {
         res.clearCookie('token')
-        res.status(202).send({message:'logout successful'})
+        res.status(202).send({message:'logout successful',success:true})
     } catch (error) {
         res.status(500).send({error:`unable to logout due to ${error.message}`})
     }
@@ -81,8 +85,8 @@ router.post('/logout',async(req,res) =>{
 
 router.get('/getUser/:id',async(req,res) =>{
     try {
-        const {id}=req.params
-        const user= await authModel.findById(id)
+        const id=req.params
+        const user= await authModel.findById(id).select('-password')
         if(!user){
             return res.status(404).send({message:'user not found'})
         }
@@ -92,7 +96,7 @@ router.get('/getUser/:id',async(req,res) =>{
     }
 })
 
-router.put('/editUser/:id',async(req,res) =>{
+router.put('/editrole/:id',async(req,res) =>{
     try {
         const {id}= req.params
         const{role}=req.body
@@ -111,12 +115,13 @@ router.put('/editUser/:id',async(req,res) =>{
 router.delete('/unregister',authMiddleware,async(req,res) =>{
     try {
         const id=req.user.id
-        const deleteUser=await authMiddleware.findByIdAndDelete(id)
+        console.log('deleting user with id',id)
+        const deleteUser=await authModel.findByIdAndDelete(id)
 
         if(!deleteUser){
             return res.status(404).send({message:'unable to delete account'})
         }
-        res.status(202).json({data:deleteUser},{message:'account deleted'})
+        res.status(202).json({data:deleteUser,message:'account deleted'})
 
     } catch (error) {
         res.status(500).send({error:`error unregistering due to ${error.message}`})
@@ -127,7 +132,7 @@ router.get('/userInfo/:id',authMiddleware,async(req,res) =>{
     try {
         const id=req.user.id
         console.log('user id is',id)
-        const user= await authMiddleware.findById(id)
+        const user= await authModel.findById(id)
         
         if(!user){
             return res.status(500).send({message:'user information not found'})
@@ -137,6 +142,34 @@ router.get('/userInfo/:id',authMiddleware,async(req,res) =>{
         )
     } catch (error) {
         res.status(500).send({error:`error getting user information due to ${error.message}`})
+    }
+})
+
+router.get('/getProfile/:id',authMiddleware,async(req,res) =>{
+    try {
+        const id=req.user.id
+        const user= await authModel.findById(id).select('-password')
+        if(!user){
+            return res.status(404).send({message:'user not found'})
+        }
+        res.status(202).json({data:user})
+    } catch (error) {
+        res.status(500).send({error:`error registering due to ${error.message}`})
+    }
+})
+
+router.put('/editprofile/:id',authMiddleware,async(req,res)=>{
+    try {
+        const id=req.user.id
+        const{name,email,picture,Dob,address,gender,phoneNumber}=req.body
+        const editedProfile=await authModel.findByIdAndUpdate(id,{$set:{name,email,picture,Dob,address,gender,phoneNumber}},{new:true})
+
+        if(!editedProfile){
+            return res.status(404).send({message:'unable to edit profile detils'})
+        }
+        res.status(202).json({data:editedProfile})
+    } catch (error) {
+        res.status(505).send({error:`our profile edit error is ${error.message}`})
     }
 })
 module.exports=router

@@ -1,10 +1,13 @@
+
 import React, { useContext, useState } from 'react'
 import { AppContext } from '../../../context/AppContext'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Placeorder = () => {
-  const{cartData,clearCart,allBooks,setAllBooks}=useContext(AppContext)
+  const{cartData,clearCart,allBooks,setAllBooks,isLoggedIn}=useContext(AppContext)
+  console.log('logged in',isLoggedIn)
   const[payment,setPayment]=useState('')
   const [ordererDetails,setOrdererDetails]=useState({
     name:'', email:'',country:'',state:'',city:'',zipcode:'',phoneNumber:''
@@ -48,7 +51,7 @@ const Placeorder = () => {
           Authorization:`bearer ${token}`
         }
       })
-      toast.success('thank you for shopping with us')
+      
         if(response && response.data){
         
         setAllBooks((prev)=>(
@@ -66,6 +69,7 @@ const Placeorder = () => {
       }
       if(response.data.success && response.data.session_url){
         window.location.href=response.data.session_url
+     
       }else{
         toast.error('stripe payment error')
       }
@@ -78,7 +82,8 @@ const Placeorder = () => {
     }
   }
   return (
-    <>
+    isLoggedIn? (
+          <>
     <div className='ordercontents'>
       <div className='titleplace'>
         <h2>please fil in the form below with the correct details</h2>
@@ -116,6 +121,12 @@ const Placeorder = () => {
       </div>
     </div>
     </>
+    ):(
+      <div className='noordering'>
+        <h2>please log in to make orders</h2>
+        <Link to='/login'>login</Link>
+      </div>
+    )
   )
 }
 

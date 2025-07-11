@@ -68,6 +68,7 @@ const Addbook = () => {
             <div className='bookcategory'>
             <label> book category</label>
             <select type='text' name='category' value={bookDetails.category} onChange={handleBookDetails}>
+                <option></option>
                 <option>Children</option>
                 <option>Faith</option>
                 <option>History</option>

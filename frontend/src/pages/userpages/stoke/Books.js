@@ -20,7 +20,7 @@ const Books = () => {
       <div className='listofbooks'>
         {books.length >0 && books.map((book,index)=>(
          <Link to={`/bookdetails/${book._id}`} key={index}><Item id={book._id} picture={book.picture} 
-         name={book.name} author={book.author} category={book.category} price={book.price} stoke={book.stoke}/> </Link>
+         name={book.name} author={book.author} category={book.category} price={book.price} /> </Link>
         ))}
       </div>
     </div>

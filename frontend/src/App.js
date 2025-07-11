@@ -18,6 +18,11 @@ import Cart from './pages/userpages/cart/Cart';
 import Myorders from './pages/userpages/orders/Myorders';
 import Placeorder from './pages/userpages/orders/Placeorder';
 import Ordersmade from './pages/adminpages/ordersMade/Ordersmade';
+import Account from './routes/account/Account';
+import Verify from './pages/userpages/orders/Verify';
+import Userlinks from './routes/userroutes/Userlinks';
+import Profile from './routes/account/Profile';
+import Editprofile from './routes/account/Editprofile';
 
 
 function App() {
@@ -28,6 +33,7 @@ function App() {
   <Routes>
     {/*users routes */}
     <Route path='/' element={<Home/>}/>
+    <Route path='/userlinks' element={<Userlinks/>}/>
     <Route path='/books' element={<Books/>}/>
     <Route path='/bookdetails/:bkid' element={<Bookdetails/>}/>
     <Route path='/children' element={<Bookscategories category='Children'/>}/>
@@ -38,10 +44,14 @@ function App() {
     <Route path='/cart'element={<Cart/>}/>
     <Route path='/placeorder' element={<Placeorder/>}/>
     <Route path='/myorders'element={<Myorders/>}/>
+    <Route path='/verify' element={<Verify/>}/>
 
     {/*shared routes */}
     <Route path='/register' element={<Register/>}/>
     <Route path='/login' element={<Login/>}/>
+    <Route path='/account'element={<Account/>}/>
+    <Route path='/profile' element={<Profile/>}/>
+    <Route path='/edtiprofile' element={<Editprofile/>}/>
     
     {/*admin routes */}
     <Route path='/admin' element={<Protectedroute><Adminlinks/></Protectedroute>}/>

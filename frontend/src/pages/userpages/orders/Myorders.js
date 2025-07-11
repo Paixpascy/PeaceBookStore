@@ -7,7 +7,8 @@ import { AppContext } from '../../../context/AppContext'
 const Myorders = () => {
   const[myOrders,setMyOrders]=useState([])
   const token=localStorage.getItem('token')
-  const{isLoggedin}=useContext(AppContext)
+  const{isLoggedIn}=useContext(AppContext)
+  console.log('placeorder login',isLoggedIn)
 
   const viewOrders=async()=>{
     const response= await axios.get('http://127.0.0.1:3004/ordersRoute/myOrders',{
@@ -23,12 +24,12 @@ const Myorders = () => {
   }
 
   useEffect(()=>{
-   /* if(!isLoggedin){
+    if(!isLoggedIn){
       toast.error('you have to log in to see orders')
       return;
-    }*/
+    }
     viewOrders()
-  },[])
+  },[isLoggedIn])
 
   const noOrders=Object.values(myOrders || {}).every((order)=>order === 0)
   return (

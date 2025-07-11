@@ -62,8 +62,8 @@ const Editbook = () => {
         <div className='bookform'>
             <form onSubmit={saveChanges}>  
                 <div className='bookpicture'>
-                    <label><img src={editedPicture?URL.createObjectURL(editedPicture):editedBook.picture ||'/media/upload_area.svg'} alt='pic' height='100px'/></label>
-                    <input type='file' name='picture' onChange={handleEditedPicture}/>
+                    <img src={editedPicture?URL.createObjectURL(editedPicture):editedBook.picture ||'/media/upload_area.svg'} alt='pic' height='100px'/>
+                    <input type='file' name='picture' onChange={handleEditedPicture}></input>
                 </div>
                 <div className='bookname'>
                     <label>book name</label>

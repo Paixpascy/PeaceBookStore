@@ -16,7 +16,7 @@ const Bookscategories = (props) => {
         {allBooks && allBooks.map((books)=>{
           if(props.category === books.category){
             return <Link to={`/bookdetails/${books._id}`} key={books._id}><Item picture={books.picture} name={books.name}
-            author={books.author} category={books.category} price={books.price} stoke={books.stoke}/></Link>
+            author={books.author} category={books.category} price={books.price} /></Link>
           }else{
             return null
           }

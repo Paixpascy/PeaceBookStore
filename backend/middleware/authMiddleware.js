@@ -10,6 +10,7 @@ const authMiddleware=((req,res,next) =>{
     }
     try {
         const verified=jwt.verify(token,process.env.JWT_SECRET_KEY)
+        //console.log('verified token',verified)
         if(verified.id){
             req.user={id:verified.id}
             console.log('req.user is',req.user)

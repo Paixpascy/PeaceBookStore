@@ -3,7 +3,7 @@ import { AppContext } from '../../../context/AppContext'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-    const {totalAmount,updatedQuantity,deleteFromCart,cartData,allBooks}=useContext(AppContext)
+    const {totalAmount,updatedQuantity,deleteFromCart,cartData,allBooks,isLoggedin}=useContext(AppContext)
     const totalQuantity=Object.values(cartData || {}).reduce((acc,quantity)=>acc + quantity,0)
     const isEmpty=Object.values(cartData || {}).every((totalBooks)=>totalBooks === 0)
 
