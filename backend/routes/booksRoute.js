@@ -82,6 +82,36 @@ router.delete('/deletebook/:id',async(req,res)=>{
     }
 })
 
+router.get('/search',async(req,res)=>{
+    try {
+        const{term}=req.query
+        const searchedBook= await bookModel.find({$or:[
+            {name:{$regex:term, $options:'i'}},{author:{$regex:term, $options:'i'}},{category:{$regex:term, $options:'i'}}
+        ]})
+
+        if(!searchedBook){
+            return res.status(404).send({message:'unable to search book'})
+        }
+        res.status(200).json({data:searchedBook})
+    } catch (error) {
+        res.status(500).send({error:`search functionality error due to ${error.message}`})
+    }
+})
+
+router.get('/newCollection',async(req,res)=>{
+    try {
+        const book= await bookModel.find()
+        const newBook=book.slice().slice(-4)
+
+        if(!newBook){
+            return res.status(404).send({message:'unable to get latest book'})
+        }
+        res.status(202).json({data:newBook})
+    } catch (error) {
+        res.status(500).send({error:`arrivals error due to ${error.message}`})
+    }
+})
+
 module.exports=router
 
 

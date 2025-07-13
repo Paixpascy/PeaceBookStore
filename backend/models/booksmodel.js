@@ -16,6 +16,7 @@ const bookSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    
     category:{
         type:String,
         equired:true

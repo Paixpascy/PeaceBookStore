@@ -18,6 +18,7 @@ const AppContextProvider = (props) => {
     const[allBooks,setAllBooks]=useState({})
     const[cartData,setCartData]=useState({})
     const[userData,setUserData]=useState()
+    const[theme,seTheme]=useState('light')
 
     useEffect(()=>{
         const userLogin=localStorage.getItem('token')
@@ -103,8 +104,16 @@ const AppContextProvider = (props) => {
       setUserData(data)
     },[])
 
-    const conntextValue={isLoggedIn,setisLoggedin,allBooks,setAllBooks,addToCart,
-      totalAmount,updatedQuantity,deleteFromCart,cartData,clearCart,userData,UserInfo}
+    const handleTheme=()=>{
+      seTheme((curr)=>(curr==='light'? 'dark': 'light'))
+    }
+
+    useEffect(()=>{
+      document.body.className=theme
+    },[theme])
+    
+    const conntextValue={isLoggedIn,setisLoggedin,allBooks,setAllBooks,addToCart,theme,
+      totalAmount,updatedQuantity,deleteFromCart,cartData,clearCart,userData,UserInfo,handleTheme}
   return (
     <div>
       <AppContext.Provider value={conntextValue}>

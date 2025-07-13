@@ -1,18 +1,23 @@
 
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useParams } from 'react-router-dom'
+import { AppContext } from '../../context/AppContext'
 
 const Profile = () => {
 
+  const{isLoggedIn}=useContext(AppContext)
   const [profileDetails,setProfileDetails]=useState(null)
 
   const{id}=useParams()
   const token=localStorage.getItem('token')
 
   useEffect(()=>{
-    axios.get(`http://127.0.0.1:3004/authRoute/getProfile/${id}`,{
+    if(!isLoggedIn){
+      return null;
+    }else{
+      axios.get(`http://127.0.0.1:3004/authRoute/getProfile/${id}`,{
       headers:{
         Authorization: `bearer ${token}`
       }
@@ -23,6 +28,7 @@ const Profile = () => {
       console.log('error getting profile details',error)
     })
     
+  }
   },[id])
 
   return (

@@ -23,12 +23,18 @@ import Verify from './pages/userpages/orders/Verify';
 import Userlinks from './routes/userroutes/Userlinks';
 import Profile from './routes/account/Profile';
 import Editprofile from './routes/account/Editprofile';
+import Footer from './routes/footer/Footer';
+import Navbar from './routes/navigation/Navbar';
+import Searched from './pages/userpages/Searched/Searched';
+import Arrivals from './pages/userpages/stoke/Arrivals';
 
 
 function App() {
   return (
   <>
+  
   <BrowserRouter>
+  <Navbar/>
   <Toaster position='top-center'/>
   <Routes>
     {/*users routes */}
@@ -41,10 +47,12 @@ function App() {
     <Route path='/history' element={<Bookscategories category='History'/>}/>
     <Route path='/poems' element={<Bookscategories category='Poems'/>}/>
     <Route path='/cookbooks' element={<Bookscategories category='Cookbooks'/>}/>
+    <Route path='/arrivals' element={<Arrivals/>}/>
     <Route path='/cart'element={<Cart/>}/>
     <Route path='/placeorder' element={<Placeorder/>}/>
     <Route path='/myorders'element={<Myorders/>}/>
     <Route path='/verify' element={<Verify/>}/>
+    <Route path='/search' element={<Searched/>}/>
 
     {/*shared routes */}
     <Route path='/register' element={<Register/>}/>
@@ -62,6 +70,8 @@ function App() {
     <Route path='/ordersmade' element={<Protectedroute><Ordersmade/></Protectedroute>}/>
   </Routes>
   </BrowserRouter>
+  <hr/>
+  <Footer/>
   </>
   );
 }

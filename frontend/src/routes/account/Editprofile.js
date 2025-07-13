@@ -1,11 +1,13 @@
 
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { AppContext } from '../../context/AppContext'
 
 const Editprofile = () => {
-      const[profileDetails,setProfileDetails]=useState({
+  const{isLoggedIn}=useContext(AppContext)
+  const[profileDetails,setProfileDetails]=useState({
     name:'', picture:'', email:'', Dob:'', address:'', phoneNumber:'', gender:'',
   })
   const handleProfile=(e)=>{
@@ -38,6 +40,9 @@ const Editprofile = () => {
   const saveChanges=async(e)=>{
     e.preventDefault()
 
+    if(!isLoggedIn){
+      return null;
+    }
     try {
       if(profilePic){
       const formData=new FormData()
@@ -99,13 +104,14 @@ const Editprofile = () => {
         <div className='gender'>
           <label>gender</label>
           <select  name='gender' value={profileDetails.gender} onChange={handleProfile}>
+            <option></option>
             <option>male</option>
             <option>Female</option>
           </select>
         </div>
         <div className='email'>
           <label>date of birth</label>
-          <input type='date' name='Dob' value={profileDetails.Dob} onChange={handleProfile}/>
+          <input type='date' name='Dob' value={profileDetails.Dob} onChange={handleProfile} max={new Date().toISOString().split('T')[0]}/>
         </div>
         </div>
         <div className='profilebtn'>
