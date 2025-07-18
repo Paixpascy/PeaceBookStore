@@ -1,0 +1,38 @@
+
+.booklisttile{
+    text-transform: uppercase;
+    text-align: center;
+}
+.booklist{
+    margin:30px;
+    padding: 10px 10px ;
+}
+ .booklist table{
+    border: solid 1px;
+    padding: 10px;
+    border-collapse:collapse ;
+    overflow-x: auto;
+}
+.booklist table th{
+    text-transform: uppercase;
+    padding: 10px;
+    border: solid 1px;
+    background-color: lightskyblue;
+}
+.booklist table td{
+    text-align: center;
+    border: solid 1px;
+    padding: 10px;
+      
+}
+.booklist button{
+    margin: 5px;
+    background-color: red;
+    text-transform: capitalize;
+    border-radius: 10px;
+    padding: 8px;
+}
+.booklist a button{
+    background-color: green;
+}
+

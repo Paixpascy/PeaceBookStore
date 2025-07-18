@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useNavigate } from 'react-router-dom'
+import './Register.css'
 
 const Register = () => {
     const [registerDetails,setRegisterDetails]=useState({
@@ -41,24 +42,25 @@ const Register = () => {
   return (
     <>
     <div className='registercontents'>
-        <div className='registertitle'>
-            <h2>please fill in the approriate information</h2>
-        </div>
+
         <div className='registerForm'>
             <form onSubmit={submitData}>
+        <div className='registertitle'>
+            <h2>create account</h2>
+        </div>
                 <div className='username'>
                     <label>full name</label>
-                    <input type='text' name='name' value={registerDetails.name} onChange={handleregistration}/>
+                    <input type='text' name='name' value={registerDetails.name} onChange={handleregistration} required/>
                 </div>
-                    <div className='username'>
+                    <div className='useremail'>
                     <label>email</label>
-                    <input type='text' name='email' value={registerDetails.email} onChange={handleregistration}/>
+                    <input type='text' name='email' value={registerDetails.email} onChange={handleregistration} required/>
                 </div>
-                    <div className='username'>
+                    <div className='userpswd'>
                     <label>password</label>
-                    <input type='text' name='password' value={registerDetails.password} onChange={handleregistration}/>
+                    <input type='text' name='password' value={registerDetails.password} onChange={handleregistration} required/>
                 </div>
-                <div className='username'>
+                <div className='usergender'>
                     <label>gender</label>
                     <select name='gender' value={registerDetails.gender} onChange={handleregistration}>
                         <option></option>
@@ -66,22 +68,23 @@ const Register = () => {
                         <option>Female</option>
                     </select>
                 </div>
-                <div className='username'>
+                <div className='userdob'>
                     <label>date of birth</label>
                     <input type='date' name='Dob' value={registerDetails.Dob} onChange={handleregistration}/>
                 </div>
-                <div className='username'>
+                <div className='useraddress'>
                     <label>address</label>
                     <input type='text' name='address' value={registerDetails.address} onChange={handleregistration}/>
                 </div>
-                <div className='username'>
+                <div className='userphone'>
                     <label>phone number</label>
                     <input type='text' name='phoneNumber' value={registerDetails.phoneNumber} onChange={handleregistration}/>
                 </div>
-                <div className='savebtn'>
+                <div className='registerbtn'>
                     <button>sign up</button>
                 </div>
                 <div className='tologin'>
+                    <p>already have an account</p>
                     <button><Link to='/login'>login</Link></button>
                 </div>
             </form>

@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className='navcontent'>
         <div className='logo'>
-            <img src='/media/logo.jpg' alt='logo' height='50px'/>
+            <Link to='/'><img src='/media/logo.jpg' alt='logo' height='50px'/></Link>
         </div>
         <div className='storename'>
             <h1>PEACE BOOK STORE</h1>

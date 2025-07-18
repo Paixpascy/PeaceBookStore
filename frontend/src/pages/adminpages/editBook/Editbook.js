@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
+import './Editbook.css'
 
 const Editbook = () => {
     const[editedBook,setEditedBook]=useState({
@@ -56,13 +57,18 @@ const Editbook = () => {
   return (
     <>
     <div className='bookdetails'>
-        <div className='title'>
+        <div className='editbooktitle'>
             <h2>please edit appropriately</h2>
         </div>
         <div className='bookform'>
             <form onSubmit={saveChanges}>  
+                <div className='editimg'>
+                    <img src='/media/editimg.png' alt='' />
+                    <p>{editedBook.name} details edit form</p>
+                </div>
+                <hr/>
                 <div className='bookpicture'>
-                    <img src={editedPicture?URL.createObjectURL(editedPicture):editedBook.picture ||'/media/upload_area.svg'} alt='pic' height='100px'/>
+                    <img src={editedPicture?URL.createObjectURL(editedPicture):editedBook.picture ||'/media/upload_area.svg'} alt='pic' />
                     <input type='file' name='picture' onChange={handleEditedPicture}></input>
                 </div>
                 <div className='bookname'>
@@ -91,7 +97,7 @@ const Editbook = () => {
                     <label>amount available</label>
                     <input type='number' name='stoke' value={editedBook.stoke} onChange={handleBookDetails}></input>
                 </div>
-                <div className='savebutn'>
+                <div className='savebutton'>
                     <button type='submit'>save changes</button>
                 </div>
             </form>

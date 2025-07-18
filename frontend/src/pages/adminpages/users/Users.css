@@ -1,0 +1,60 @@
+
+.userstitle{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.userslist{
+    margin: 30px;
+}
+
+.userslist table{
+    border: solid 1px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.userslist table th{
+    text-transform: uppercase;
+    padding: 10px;
+    border: solid 1px;
+    background-color: lightblue;
+}
+
+.userslist table td{
+    border: solid 1px;
+    padding: 10px;
+}
+
+.userslist button{
+    background-color: red;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.modalcontents{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50% -50%);
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 2rem;
+
+}
+
+.modaltitle{
+    text-transform: uppercase;
+    color: black;
+}
+.saverole button{
+    margin: 5px;
+    text-transform: capitalize;
+    width: 20%;
+    background-color: yellowgreen;
+}
+.selectrole select{
+    width: 100%;
+}

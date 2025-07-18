@@ -4,7 +4,7 @@ import { AppContext } from '../../../context/AppContext'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-
+import './Placeorder.css'
 const Placeorder = () => {
   const{cartData,clearCart,allBooks,setAllBooks,isLoggedIn}=useContext(AppContext)
   console.log('logged in',isLoggedIn)
@@ -85,36 +85,36 @@ const Placeorder = () => {
     isLoggedIn? (
           <>
     <div className='ordercontents'>
-      <div className='titleplace'>
-        <h2>please fil in the form below with the correct details</h2>
+      <div className='placetitle'>
+        <h2>please fill in the form below with the correct details</h2>
       </div>
       <div className='orederform'>
         <form onSubmit={checkOut}>
-          <div className='name'>
+          <div className='oredername'>
             <label>full names</label>
             <input type='text' name='name' value={ordererDetails.name} onChange={handleDetails}/>
           </div>
-          <div className='email'>
+          <div className='orederemail'>
             <label>email</label>
             <input type='text' name='email' value={ordererDetails.email} onChange={handleDetails}/>
           </div>
-          <div className='name'>
+          <div className='orederphone'>
             <label>phone Number</label>
             <input type='text' name='phoneNumber' value={ordererDetails.phoneNumber} onChange={handleDetails}/>
           </div>
-          <div className='name'>
+          <div className='oredercountry'>
             <label>country</label>
             <input type='text' name='country' value={ordererDetails.country} onChange={handleDetails}/>
             <label>state</label>
             <input type='text' name='state' value={ordererDetails.state} onChange={handleDetails}/>
           </div>
-          <div className='name'>
+          <div className='oredercity'>
             <label>city</label>
             <input type='text' name='city' value={ordererDetails.city} onChange={handleDetails}/>
             <label>zip code</label>
             <input type='text' name='zipcode' value={ordererDetails.zipcode} onChange={handleDetails}/>
           </div>
-          <div className='orderbtn'>
+          <div className='paymentbtn'>
             <button type='submit' onClick={()=>{setPayment('stripe')}}>procced to pay with stipe</button>
           </div>
         </form>

@@ -1,0 +1,62 @@
+
+.registertitle{
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+}
+.registerForm form{
+    max-width: 800px;
+    padding: 30px 12px;
+    margin: 40px auto;
+    background-color: white;
+    border: solid 1xp #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.registerForm label{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+}
+.registerForm input,
+.registerForm select{
+    width: 100%;
+    padding: 10px 12px;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.registerForm .registerbtn{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.registerForm .registerbtn button{
+    color: white;
+    background-color: blue;
+    border: ridge;
+    border-radius: 10px;
+    text-transform: uppercase;
+    width: 50%;
+    height: 40px;
+    cursor: pointer;
+}
+
+.tologin a{
+    color: black;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.registerForm .tologin button{
+    color: white;
+    background-color: lightblue;
+    border: ridge;
+    border-radius: 10px;
+    text-transform: uppercase;
+    width: 50%;
+    height: 40px;
+    
+}

@@ -1,0 +1,64 @@
+
+.placetitle{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.orederform form{
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 30px 40px;
+    border: solid 1px #ddd;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.orederform label{
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    text-transform: uppercase;
+    font-weight:600;
+    padding: 10px;
+}
+
+.orederform input{
+    width: 100%;
+    padding: 10px 12px;
+    border: solid 1px #ddd;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.orederform .oredercountry,
+.orederform .oredercity{
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.orederform .paymentbtn{
+    margin: 30px;
+}
+.orederform .paymentbtn button{
+    color: white;
+    background-color: blue;
+    padding: 10px 20px;
+    border: ridge;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bolder;
+    
+}
+
+@media screen and (max-width: 150px) {
+.orederform .oredercountry,
+.orederform .oredercity,
+.orederform .oredername,
+.orederform .orederemail
+.orederform .orederphone{
+    width: 100%;
+    margin-right: 0;
+}
+}

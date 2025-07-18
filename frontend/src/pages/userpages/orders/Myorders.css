@@ -1,0 +1,24 @@
+
+.noorders{
+    text-transform: capitalize;
+    text-align: center;
+    font-size: large;
+}
+
+.orderslist table{
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+.orderslist table th{
+    text-transform: uppercase;
+    background-color: lightblue;
+    border: solid 1px;
+    padding: 10px;
+}
+
+.orderslist table td{
+    border: solid 1px;
+    padding:10px;
+    text-align: center;
+}

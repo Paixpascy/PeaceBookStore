@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
+import './Login.css'
 
 const Login = () => {
   const {isLoggedIn,setisLoggedin,UserInfo}=useContext(AppContext)
@@ -48,23 +49,34 @@ const Login = () => {
         return;
       }
     } catch (error) {
-      toast.error('unable to login')
+      if(error.response?.data?.error?.includes('jwt expired')){
+        toast.error('please login once more')
+      }else{
+        toast.error('unable to log in')
+      }
     }
    }
 
   return (
     <>
+    <div className='loginbox'>
     <div className='logincontent'>
+      
       <div className='logintitle'>
-        <h2>please fill in the correct details</h2>
+          <img src='/media/loginimg.jpg' alt='' />
       </div>
+      
       <div className='loginform'>
         <form onSubmit={submitData}>
-          <div className='email'>
+          <div className=''>
+            <h2>login</h2>
+            <p>welcome back</p>
+          </div>
+          <div className='loginame'>
             <label>email</label>
             <input type='text' name='email' value={loginDetails.email} onChange={handleLoginDetails}/>
           </div>
-            <div className='email'>
+            <div className='loginpswd'>
             <label>password</label>
             <input type='text' name='password' value={loginDetails.password} onChange={handleLoginDetails}/>
           </div>
@@ -73,6 +85,7 @@ const Login = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
     </>
   )

@@ -4,6 +4,7 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import './Booklist.css'
 
 const Booklist = () => {
     const[allBooks,setAllBooks]=useState([])
@@ -43,6 +44,9 @@ const Booklist = () => {
     }
   return (
     <>
+    <div className='booklisttile'>
+        <h2>list of books in stock</h2>
+    </div>
     <div className='booklist'>
         <table>
             <thead>
@@ -65,7 +69,7 @@ const Booklist = () => {
                         <td>{book.category}</td>
                         <td>{book.price}</td>
                         <td>{book.stoke}</td>
-                        <td>
+                        <td className='booklistbtn'>
                             <Link to={`/editbook/${book._id}`}><button>edit book details</button></Link>
                             <button onClick={()=>{deleteBook(book._id)}}>delete book</button>
                         </td>

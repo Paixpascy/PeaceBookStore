@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import './Addbook.css'
 
 const Addbook = () => {
         const[bookDetails,setBookDetails]=useState({
@@ -52,14 +53,22 @@ const Addbook = () => {
     })
   return (
     <>
-    <form onSubmit={saveBook}>
+    <div className='addbooktitle'>
+        <h2>please fill in the form with the appropriate information</h2>
+    </div>
+    <form onSubmit={saveBook} className='addbkform'>
+        <div className='addtopdtimg'>
+            <img src='/media/addpdt.png' alt='' height='50px'/>
+            <p>add to product form</p>
+        </div>
+        <hr/>
         <div className='bookname'>
             <label> book name</label>
             <input type='text' name='name' value={bookDetails.name} onChange={handleBookDetails}/>
         </div>
         <div className='bookpicture'>
-            <label><img src={picture? URL.createObjectURL(picture):bookDetails.picture ||'/media/upload_area.svg'} alt=''height='50px'/> </label>
-            <input type='file' name='picture'onChange={handlePicture}/>
+            <label><img src={picture? URL.createObjectURL(picture):bookDetails.picture ||'/media/upload_area.svg'} alt=''/> </label>
+            <input type='file' name='picture'onChange={handlePicture} className='picinput'/>
         </div>
         <div className='bookauthor'>
             <label> book author</label>

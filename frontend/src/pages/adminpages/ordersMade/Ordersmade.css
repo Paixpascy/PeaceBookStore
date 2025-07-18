@@ -1,0 +1,34 @@
+
+.orderstitle{
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.orderscontent{
+    margin: 30px;
+}
+
+.orderscontent table{
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+.orderscontent table th{
+    text-transform: uppercase;
+    border: solid 1px;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.orderscontent table td{
+    border: solid 1px;
+    padding: 10px;
+    text-align: center;
+}
+
+.orderscontent button{
+    background-color: red;
+    text-transform: capitalize;
+    color: white;
+    border-radius: 5px;
+}

@@ -27,6 +27,7 @@ import Footer from './routes/footer/Footer';
 import Navbar from './routes/navigation/Navbar';
 import Searched from './pages/userpages/Searched/Searched';
 import Arrivals from './pages/userpages/stoke/Arrivals';
+import Adminhome from './pages/adminpages/adminhome/Adminhome';
 
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
     
     {/*admin routes */}
     <Route path='/admin' element={<Protectedroute><Adminlinks/></Protectedroute>}/>
+    <Route path='/adminhome' element={<Adminhome/>}/>
     <Route path='/addbook' element={<Protectedroute><Addbook/></Protectedroute>}/>
     <Route path='/booklist' element={<Protectedroute><Booklist/></Protectedroute>}/>
     <Route path='/editbook/:id' element={<Protectedroute><Editbook/></Protectedroute>}/>

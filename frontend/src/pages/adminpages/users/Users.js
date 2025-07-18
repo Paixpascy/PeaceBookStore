@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import Modal from 'react-modal'
+import './Users.css'
 
 Modal.setAppElement('#root')
 const Users = () => {
@@ -59,6 +60,8 @@ const Users = () => {
                     <tr>
                         <th>name</th>
                         <th>email</th>
+                        <th>phone Number</th>
+                        <th>address</th>
                         <th>role</th>
                         <th>assign new role</th>
                 </tr>
@@ -68,6 +71,8 @@ const Users = () => {
                         <tr key={index}>
                             <td>{user.name}</td>
                             <td>{user.email}</td>
+                            <td>{user.phoneNumber}</td>
+                            <td>{user.address}</td>
                             <td>{user.role}</td>
                             <td>
                                 <button onClick={()=>{openModal(user)}}>change role</button>
@@ -81,7 +86,7 @@ const Users = () => {
 
     <Modal isOpen={modal} onRequestClose={closeModal} className='modalcontents'>
         <div className='modaltitle'>
-            <h2>change role of{selectedRole?.name}</h2>
+            <h2>change role of {selectedRole?.name}</h2>
         </div>
         <div className='selectrole'>
             <select value={changeRole[selectedRole?._id] ||''} 
@@ -92,7 +97,7 @@ const Users = () => {
         </div>
         <div className='saverole'>
             <button onClick={saveNewRole}>save</button>
-            <button onClick={closeModal}>cancle</button>
+            <button onClick={closeModal}>cancel</button>
         </div>
     </Modal>
     </>

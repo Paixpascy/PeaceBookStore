@@ -1,0 +1,92 @@
+
+.editbooktitle{
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.editimg{
+    color: white;
+    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    gap: 20px;
+    padding: 20px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.editimg img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 3px solid white;
+}
+.bookform form{
+    padding: 30px 40px;
+    margin: 10px auto;
+    max-width: 800px;
+    border: solid 1px #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+.bookform label{
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.bookform input,
+.bookform select{
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+}
+.bookpicture img{
+    width: 130px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.bookform .bookname,
+.bookform .bookauthor,
+.bookform .bookcategory,
+.bookform .bookprice,
+.bookform .bookstoke{
+    display: inline-block;
+    margin-left: 2%;
+    width: 45%;
+    vertical-align: top;
+}
+.bookform .savebutton{
+    text-align: center;
+}
+.bookform .savebutton button{
+    background-color: blue;
+    padding: 10px 20px;
+    border: ridge;
+    border-radius: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+@media screen and (max-width: 768px){
+    .bookform .bookname,
+    .bookform .bookauthor,
+    .bookform .bookcategory,
+    .bookform .bookprice,
+    .bookform .bookstoke{
+        width: 100%;
+        margin: 0;
+}
+}

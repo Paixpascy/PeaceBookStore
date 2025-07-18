@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
+import './Ordersmade.css'
 
 const Ordersmade = () => {
     const [allOrders,setAllOrders]=useState([])
@@ -43,10 +44,10 @@ const Ordersmade = () => {
   return (
     <>
     <div className=''>
-        <div className=''>
+        <div className='orderstitle'>
             <h2>below are the orders made</h2>
         </div>
-        <div className=''>
+        <div className='orderscontent'>
             <table>
                 <thead>
                     <tr>
@@ -60,6 +61,7 @@ const Ordersmade = () => {
                         <th>client email</th>
                         <th>client phone number</th>
                         <th>client address</th>
+                        <th>date order was made</th>
                         <th>action</th>
                     </tr>
                 </thead>
@@ -71,7 +73,7 @@ const Ordersmade = () => {
                                 <td>{order.iteminfo.name}</td>
                                 <td>{order.iteminfo.price}</td>
                                 <td>{order.iteminfo.category}</td>
-                                <td>{orders.quantity}</td>
+                                <td>{order.quantity}</td>
                                 <td>{orders.paymentMethod}</td>
                                 <td>{orders.name}</td>
                                 <td>{orders.email}</td>
@@ -80,6 +82,7 @@ const Ordersmade = () => {
                                     {orders.address.state},
                                     {orders.address.city},
                                     {orders.address.zipcode}</td>
+                                    <td>{new Date(orders.date).toLocaleString()}</td>
                                 <td>
                                     <button onClick={()=>{deletedOrder(orders._id)}}>delete order</button>
                                 </td>    

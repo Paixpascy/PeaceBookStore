@@ -1,0 +1,86 @@
+
+.loginbox{
+    border: solid 5px white;
+    max-width: 800px;
+    margin:30px 50px 150px 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.loginbox .logincontent{
+    display: flex;
+}
+
+.logintitle h4{
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+
+}
+
+.logintitle{
+    width: 50%;
+}
+
+.logintitle img{
+    object-fit: cover;
+    padding: 0;
+    height: 100%;
+    width: 90%;
+}
+
+.loginbox .loginform form{
+    max-width: 800px;
+    padding: 20px;
+}
+
+.loginform p, .loginform h2{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+
+.loginform label{
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+.loginform input{
+    width: 150%;
+    padding: 10px 12px;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.loginform .loginbtn{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loginform .loginbtn button{
+    color: white;
+    background-color: blue;
+    border: ridge;
+    border-radius: 10px;
+    text-transform: uppercase;
+    width: 50%;
+    height: 40px;
+    cursor: pointer;
+}
+
+/*@media (max-width: 883px){
+    .logincontent{
+        flex-direction: column;
+    }
+    .loginform{
+        padding: 10px 20px;
+
+    }
+    .logintitle img{
+        display:80%;
+        object-fit: cover;
+    }
+}*/

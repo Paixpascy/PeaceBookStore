@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import { AppContext } from '../../../context/AppContext'
-
+import './Myorders.css'
 
 const Myorders = () => {
   const[myOrders,setMyOrders]=useState([])
@@ -31,7 +31,8 @@ const Myorders = () => {
     viewOrders()
   },[isLoggedIn])
 
-  const noOrders=Object.values(myOrders || {}).every((order)=>order === 0)
+  //const noOrders=Object.values(myOrders || {}).every((order)=>order === 0)
+  const noOrders=myOrders.length === 0
   return (
     noOrders?(
       <div className='noorders'>
