@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
 import './Editbook.css'
+import Adminlinks from '../../../routes/adminroutes/Adminlinks'
 
 const Editbook = () => {
     const[editedBook,setEditedBook]=useState({
@@ -56,6 +57,7 @@ const Editbook = () => {
     }
   return (
     <>
+    <Adminlinks/>
     <div className='bookdetails'>
         <div className='editbooktitle'>
             <h2>please edit appropriately</h2>
@@ -83,7 +85,7 @@ const Editbook = () => {
                     <label>book category</label>
                     <select type='text' name='category' value={editedBook.category} onChange={handleBookDetails}>
                         <option>Children</option>
-                        <option>Faith</option>
+                        <option>Christian</option>
                         <option>History</option>
                         <option>Poems</option>
                         <option>Cookbooks</option>

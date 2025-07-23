@@ -1,0 +1,34 @@
+
+.profiledetails {
+    margin: 30px;
+}
+
+.profiledetails form{
+    max-width: 800px;
+    border: 1px white solid;
+    padding: 30px;
+}
+
+.otherdetails label{
+    display: block;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.otherdetails input, .otherdetails select{
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+}
+
+.profilebtn button{
+    width: 25%;
+    height: 5vh;
+    margin: 40px;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+}

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import './Booklist.css'
+import Adminlinks from '../../../routes/adminroutes/Adminlinks'
 
 const Booklist = () => {
     const[allBooks,setAllBooks]=useState([])
@@ -44,6 +45,7 @@ const Booklist = () => {
     }
   return (
     <>
+    <Adminlinks/>
     <div className='booklisttile'>
         <h2>list of books in stock</h2>
     </div>

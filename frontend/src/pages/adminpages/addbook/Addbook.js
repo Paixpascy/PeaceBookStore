@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import './Addbook.css'
+import Adminlinks from '../../../routes/adminroutes/Adminlinks'
 
 const Addbook = () => {
         const[bookDetails,setBookDetails]=useState({
@@ -53,6 +54,7 @@ const Addbook = () => {
     })
   return (
     <>
+    <Adminlinks/>
     <div className='addbooktitle'>
         <h2>please fill in the form with the appropriate information</h2>
     </div>
@@ -79,7 +81,7 @@ const Addbook = () => {
             <select type='text' name='category' value={bookDetails.category} onChange={handleBookDetails}>
                 <option></option>
                 <option>Children</option>
-                <option>Faith</option>
+                <option>Christian</option>
                 <option>History</option>
                 <option>Poems</option>
                 <option>Cookbooks</option>

@@ -44,7 +44,7 @@ function App() {
     <Route path='/books' element={<Books/>}/>
     <Route path='/bookdetails/:bkid' element={<Bookdetails/>}/>
     <Route path='/children' element={<Bookscategories category='Children'/>}/>
-    <Route path='/faith' element={<Bookscategories category='Faith'/>}/>
+    <Route path='/faith' element={<Bookscategories category='Christian'/>}/>
     <Route path='/history' element={<Bookscategories category='History'/>}/>
     <Route path='/poems' element={<Bookscategories category='Poems'/>}/>
     <Route path='/cookbooks' element={<Bookscategories category='Cookbooks'/>}/>
@@ -63,8 +63,8 @@ function App() {
     <Route path='/edtiprofile' element={<Editprofile/>}/>
     
     {/*admin routes */}
-    <Route path='/admin' element={<Protectedroute><Adminlinks/></Protectedroute>}/>
-    <Route path='/adminhome' element={<Adminhome/>}/>
+    <Route path='/admin' element={<Protectedroute><Adminhome/></Protectedroute>}/>
+    <Route path='/adminlinks' element={<Adminlinks/>}/>
     <Route path='/addbook' element={<Protectedroute><Addbook/></Protectedroute>}/>
     <Route path='/booklist' element={<Protectedroute><Booklist/></Protectedroute>}/>
     <Route path='/editbook/:id' element={<Protectedroute><Editbook/></Protectedroute>}/>

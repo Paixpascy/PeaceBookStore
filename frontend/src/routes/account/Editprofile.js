@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
+import './Editprofile.css'
 
 const Editprofile = () => {
   const{isLoggedIn}=useContext(AppContext)
@@ -81,12 +82,11 @@ const Editprofile = () => {
     <>
     <div className='profiledetails'>
       <form onSubmit={saveChanges}>
-        <div className=''>
+        <div className='nameandimg'>
          <img src={profilePic? URL.createObjectURL(profilePic):profileDetails.picture || '/media/upload_area.svg'} alt='' height='150px'/>
          <input type='file' onChange={handlePicture}/><br/>
          <input type='text' name='name' value={profileDetails.name} onChange={handleProfile}/>
         </div>
-        <hr/>
         <div className='otherdetails'>
           <h3>other profile details</h3>
         <div className='email'>
@@ -105,7 +105,7 @@ const Editprofile = () => {
           <label>gender</label>
           <select  name='gender' value={profileDetails.gender} onChange={handleProfile}>
             <option></option>
-            <option>male</option>
+            <option>Male</option>
             <option>Female</option>
           </select>
         </div>

@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { Link, useParams } from 'react-router-dom'
 import { AppContext } from '../../context/AppContext'
+import './Profile.css'
 
 const Profile = () => {
 
@@ -35,20 +36,19 @@ const Profile = () => {
     profileDetails?(
       <div className='allprofdts'>
         <div className='imgname'>
-          <img src={profileDetails.picture || '/media/upload_area.svg'} alt='' height='150px'/>
+          <img src={profileDetails.picture || '/media/upload_area.svg'} alt='' height='400px'/>
           <p>{profileDetails.name}</p>
         </div>
-        <hr/>
         <div className='otherprofdts'>
           <h3>other details</h3>
-          <p>email:{profileDetails.email}</p>
-          <p>address:{profileDetails.address}</p>
-          <p>phone Number:{profileDetails.phoneNumber}</p>
-          <p>gender:{profileDetails.gender}</p>
-          <p>date of birth:{profileDetails.Dob}</p>
-        </div>
+          <p><b>email</b>:{profileDetails.email}</p>
+          <p><b>address</b>:{profileDetails.address}</p>
+          <p><b>phone Number</b>:{profileDetails.phoneNumber}</p>
+          <p><b>gender</b>:{profileDetails.gender}</p>
+          <p><b>date of birth</b>:{profileDetails.Dob}</p>
         <div className='editlink'>
           <button><Link to='/edtiprofile'>edit profile details</Link></button>
+        </div>
         </div>
       </div>
       

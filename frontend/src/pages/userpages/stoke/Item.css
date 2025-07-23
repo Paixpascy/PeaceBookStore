@@ -1,0 +1,25 @@
+
+.itemcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemcontainer p{
+    padding-left: 10px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.itemcontainer b{
+    text-transform: uppercase;
+
+}
+.itemcontainer img{
+    bottom: 0;
+    margin: auto;
+    max-height: 196px;
+    right: 0;
+    top: 0;
+}

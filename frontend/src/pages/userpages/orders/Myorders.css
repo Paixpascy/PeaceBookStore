@@ -1,13 +1,28 @@
 
-.noorders{
+.noorders h2{
     text-transform: capitalize;
     text-align: center;
     font-size: large;
+    padding: 50px;
+}
+
+.titleorder h2{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.orderslist{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 90px;
+    padding-top: 30px;
 }
 
 .orderslist table{
     border: solid 1px;
     border-collapse: collapse;
+    max-width: 800px;
 }
 
 .orderslist table th{

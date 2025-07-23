@@ -1,0 +1,73 @@
+
+.homecontent{
+    margin-left: 10px;
+    margin-bottom: 50px;
+}
+
+.newarrivals h2{
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 30px;
+}
+
+.categorieslink{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    align-items: center;
+    
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 150px;
+    height: 35vh;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3)
+}
+
+.categories img{
+    width: 100px;
+    padding-bottom: 40px;
+}
+
+.categoriescards h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.homepic{
+    position: relative;
+    text-align: center;
+}
+.homepic img{
+    display: block;
+    width: 100%;
+    height: 55vh;
+    
+}
+.homepic h2{
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    transform: translate(-30%, -50%);
+    text-transform: uppercase;
+    color: white;
+}
+
+.homepic p{
+    position: absolute;
+    bottom:90px;
+    right: 15px;
+    color: white;
+}
+
+@media (max-width: 510px) {
+  .homepic h2 {
+    font-size: 1.2rem;
+    overflow-wrap: break-word;
+  }
+}

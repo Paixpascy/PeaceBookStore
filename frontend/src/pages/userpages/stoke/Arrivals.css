@@ -1,0 +1,12 @@
+
+.newones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newones a{
+    color: inherit;
+    text-decoration: none;
+    margin: 40px;
+}

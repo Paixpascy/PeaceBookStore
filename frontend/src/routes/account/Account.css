@@ -1,0 +1,121 @@
+
+.account{
+    display: flex;
+    gap: 100px;
+    margin-top: 20px;
+    background-color: gray;
+    height: 150vh;
+}
+
+.sidebar{
+    width: 20%;
+    background-color: lightgray;
+    padding: 20px;
+    color: black;
+}
+
+.sidebar a{
+    color: inherit;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.sidelink{
+    padding:20px 0 20px 0;
+    cursor: pointer;
+}
+
+.sidelink img{
+    border-radius: 30px;
+}
+
+.sidelink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.acountmain{
+    background-color: white;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    margin: 2px;
+    color: black;
+}
+
+.greeting {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: x-large;
+  padding-top: 30px;
+}
+
+.noaccountlink{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+}
+
+.noaccountcard{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 5px 30px;
+    width: 80%;
+}
+
+.noaccountlink button{
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    margin: 30px;
+    font-size: 14px;
+    width: 20%;
+    height: 7vh;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+.noaccountlink a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.noaccountcard img{
+  width: 20%;
+}
+
+@media (max-width: 768px) {
+  .account {
+    flex-direction: column;
+    padding-bottom: 500px;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .acountmain {
+    width: 100%;
+  }
+
+  .sidelink {
+    justify-content: center;
+    width: 45%;
+    margin-bottom: 0.5rem;
+  }
+  .acountmain{
+     overflow-wrap: break-word;
+  }
+}
+

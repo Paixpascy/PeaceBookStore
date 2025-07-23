@@ -1,0 +1,32 @@
+
+.verify{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.verify h1{
+    text-align: center;
+    padding: 50px 50px 10px 50px;
+    text-transform: uppercase;
+    font-size: xx-large;
+}
+
+.verify p{
+    text-align: center;
+    padding: 10px 50px 30px 30px;
+    font-size: large;
+}
+
+.verifytrue button{
+    margin-left: 40%;  
+    padding: 10px 20px;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 15px;
+}
+
+.verify a{
+    text-decoration: none;
+    color: inherit;
+}

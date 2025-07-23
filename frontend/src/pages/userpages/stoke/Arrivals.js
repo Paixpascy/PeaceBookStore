@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Item from './Item'
 import { Link } from 'react-router-dom'
+import './Arrivals.css'
 
 const Arrivals = () => {
 

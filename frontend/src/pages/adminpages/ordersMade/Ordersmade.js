@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
 import './Ordersmade.css'
+import Adminlinks from '../../../routes/adminroutes/Adminlinks'
 
 const Ordersmade = () => {
     const [allOrders,setAllOrders]=useState([])
@@ -43,6 +44,7 @@ const Ordersmade = () => {
     }
   return (
     <>
+    <Adminlinks/>
     <div className=''>
         <div className='orderstitle'>
             <h2>below are the orders made</h2>
@@ -71,8 +73,8 @@ const Ordersmade = () => {
                             <tr key={`${order._id}-${index}`}>
                                 <td><img src={order.iteminfo.picture} alt='' height='150px'/></td>
                                 <td>{order.iteminfo.name}</td>
-                                <td>{order.iteminfo.price}</td>
                                 <td>{order.iteminfo.category}</td>
+                                <td>{order.iteminfo.price}</td>
                                 <td>{order.quantity}</td>
                                 <td>{orders.paymentMethod}</td>
                                 <td>{orders.name}</td>

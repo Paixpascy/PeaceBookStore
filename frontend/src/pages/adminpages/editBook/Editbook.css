@@ -53,9 +53,9 @@
     box-sizing: border-box;
 }
 .bookpicture img{
-    width: 130px;
-    height: 180px;
-    object-fit: cover;
+    width: 200px;
+    height: 40vh;
+    object-fit: contain;
     margin-bottom: 10px;
 }
 .bookform .bookname,
@@ -72,7 +72,7 @@
     text-align: center;
 }
 .bookform .savebutton button{
-    background-color: blue;
+    background-color: #007BFF;
     padding: 10px 20px;
     border: ridge;
     border-radius: 10px;

@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../../context/AppContext'
 import { useParams } from 'react-router-dom'
 import toast from 'react-hot-toast'
-
+import './Bookdetails.css'
+import Userlinks from '../../../routes/userroutes/Userlinks'
 
 const Bookdetails = () => {
     const{allBooks,addToCart,cartData}=useContext(AppContext)
@@ -40,26 +41,29 @@ const Bookdetails = () => {
   return (
     singleBook !==undefined?(
     <>
-    <div className='bookdeetailscontent'>
-        <div className='bookname'>
-            <p>{singleBook.name}</p>
+    <Userlinks/>
+    <div className='bookcontent'>
+        <div className='bookimg'>
+            <img src={singleBook.picture} alt='bookpicture' />
+            
         </div>
         <div>
-        <img src={singleBook.picture} alt='bookpicture' height='150px'/>
-        <p>author:{singleBook.author}</p>
-        <p>category:{singleBook.category}</p>
-        <p>price:{singleBook.price}</p>
-        <p>amount left:{remainingStoke}</p>
-        <label>desired amount</label>
-        <select max={remainingStoke} value={qtyDesired} onChange={handleQuantity}>
-            {[...Array(singleBook.stoke +1).keys()].map((val)=>(
-                <option key={val} value={val}>{val}</option>
-            ))}
-        </select>
+        <div className='otherdtls'>   
+            <p><span>{singleBook.name}</span></p>
+            <p><b>AUTHOR</b>: {singleBook.author}</p>
+            <p><b>CATEGORY</b>: {singleBook.category}</p>
+            <p><b>PRICE</b>: {singleBook.price}$</p>
+            <p><b>AMOUNT AVAILABLE</b>: {remainingStoke}</p>
+            <label><b>DESIRED AMOUNT</b></label>
+            <select max={remainingStoke} value={qtyDesired} onChange={handleQuantity}>
+                {[...Array(singleBook.stoke +1).keys()].map((val)=>(
+                    <option key={val} value={val}>{val}</option>
+                ))}
+            </select>
         </div>
         <div className='cartadd'>
             {outOfStock?(
-                <p>finished</p>
+                <p>out of stock</p>
             ):
             <button onClick={()=>{
                 if(qtyDesired ===0 ){
@@ -70,9 +74,10 @@ const Bookdetails = () => {
                 toast.success('product added')
             }}>add to cart</button>}
         </div>
+        </div> 
     </div>
     </>
-    ):(<p>book not available</p>)
+    ):(<p className='missingbk'>book not available</p>)
 
   )
 }

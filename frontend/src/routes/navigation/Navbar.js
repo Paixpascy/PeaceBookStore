@@ -4,6 +4,7 @@ import { FcSearch } from "react-icons/fc";
 import { Link, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import ReactSwitch from 'react-switch'
+import './Navbar.css'
 
 const Navbar = () => {
 
@@ -22,19 +23,19 @@ const Navbar = () => {
   return (
     <div className='navcontent'>
         <div className='logo'>
-            <Link to='/'><img src='/media/logo.jpg' alt='logo' height='50px'/></Link>
+            <Link to='/'><img src='/media/logo.jpg' alt='logo' height='80px'/></Link>
         </div>
         <div className='storename'>
-            <h1>PEACE BOOK STORE</h1>
+            PEACE BOOK STORE
         </div>
         <div className='search'>
             <form onSubmit={handleSearch}>
-                <input type='text' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)}/>
+                <input type='search' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder='search by tittle or author'/>
                 <button type='submit'><FcSearch /></button>
             </form>
         </div>
         <div className='theme'>
-            <label>theme </label>
+            {/*<label>theme </label>*/}
             <ReactSwitch onChange={handleTheme} checked={theme==='light'}/>
             <label>{theme==='light'? 'light mode': 'dark mode'}</label>
         </div>
@@ -42,7 +43,7 @@ const Navbar = () => {
             {isLoggedIn?(
                 <button><Link to='/account'>account</Link></button>
             ):(
-                <button><Link to='/register'>register/login</Link></button>
+                <button><Link to='/register'>register<br/>login</Link></button>
             )}
         </div>
     </div>

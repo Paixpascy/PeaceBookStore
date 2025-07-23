@@ -15,7 +15,7 @@ const getCart=((books)=>{
 const AppContextProvider = (props) => {
 
     const[isLoggedIn,setisLoggedin]=useState(false)
-    const[allBooks,setAllBooks]=useState({})
+    const[allBooks,setAllBooks]=useState([])
     const[cartData,setCartData]=useState({})
     const[userData,setUserData]=useState()
     const[theme,seTheme]=useState('light')

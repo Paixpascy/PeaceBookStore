@@ -1,0 +1,21 @@
+
+.categorymenu{
+    margin: 30px;
+}
+
+.categoryname{
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 30px;
+}
+
+.categorycontent{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.categorycontent a{
+    text-decoration: none;
+    color:inherit;
+}

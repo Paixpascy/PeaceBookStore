@@ -1,0 +1,26 @@
+
+.allbookscontent{
+    margin: 20px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.bookstitlte{
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.listofbooks{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+    margin: 0;
+    justify-items: center;
+}
+
+.listofbooks a{
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+}

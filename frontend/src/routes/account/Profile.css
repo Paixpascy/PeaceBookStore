@@ -1,0 +1,54 @@
+
+.allprofdts{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgname img{
+    border-radius: 30px;
+    border: 1px solid white;
+    object-fit: cover;
+}
+
+.imgname p{
+    text-transform: uppercase;
+    font-size:x-large;
+}
+
+.otherprofdts h3{
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.otherprofdts b{
+    text-transform: uppercase;
+    font-size: large;
+}
+
+.otherprofdts p{
+    font-size: large;
+
+}
+
+.editlink button{
+    height: 5vh;
+    border-radius: 10px;
+    background-color: #007BFF;
+    margin-top: 20px;
+}
+
+.editlink a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+@media  (max-width: 572px){
+    .allprofdts{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

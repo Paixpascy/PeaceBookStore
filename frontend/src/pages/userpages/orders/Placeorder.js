@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import './Placeorder.css'
+import Userlinks from '../../../routes/userroutes/Userlinks'
 const Placeorder = () => {
   const{cartData,clearCart,allBooks,setAllBooks,isLoggedIn}=useContext(AppContext)
   console.log('logged in',isLoggedIn)
@@ -84,6 +85,7 @@ const Placeorder = () => {
   return (
     isLoggedIn? (
           <>
+          <Userlinks/>
     <div className='ordercontents'>
       <div className='placetitle'>
         <h2>please fill in the form below with the correct details</h2>

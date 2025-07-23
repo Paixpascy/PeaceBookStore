@@ -3,6 +3,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { AppContext } from '../../../context/AppContext'
 import './Myorders.css'
+import Userlinks from '../../../routes/userroutes/Userlinks'
 
 const Myorders = () => {
   const[myOrders,setMyOrders]=useState([])
@@ -36,10 +37,12 @@ const Myorders = () => {
   return (
     noOrders?(
       <div className='noorders'>
+        <Userlinks/>
         <h2>no orders made yet</h2>
       </div>
     ):(
     <>
+    <Userlinks/>
     <div className='myorderscontent'>
       <div className='titleorder'>
         <h2>orders made</h2>

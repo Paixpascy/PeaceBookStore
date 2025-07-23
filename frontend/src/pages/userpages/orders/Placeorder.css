@@ -4,6 +4,10 @@
     text-transform: uppercase;
 }
 
+.ordercontents{
+    padding-bottom: 50px;
+}
+
 .orederform form{
     margin: 40px auto;
     max-width: 800px;
@@ -42,7 +46,7 @@
 }
 .orederform .paymentbtn button{
     color: white;
-    background-color: blue;
+    background-color: #007BFF;
     padding: 10px 20px;
     border: ridge;
     border-radius: 6px;

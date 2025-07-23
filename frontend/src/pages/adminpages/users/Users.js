@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import Modal from 'react-modal'
 import './Users.css'
+import Adminlinks from '../../../routes/adminroutes/Adminlinks'
 
 Modal.setAppElement('#root')
 const Users = () => {
@@ -50,6 +51,7 @@ const Users = () => {
     }
   return (
     <>
+    <Adminlinks/>
     <div className='usersavailabe'>
         <div className='userstitle'>
             <h2>list of users</h2>

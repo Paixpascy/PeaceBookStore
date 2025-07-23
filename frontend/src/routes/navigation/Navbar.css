@@ -1,0 +1,40 @@
+
+.navcontent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+    padding-top: 1px;
+}
+
+.storename{
+    font-size: 200%;
+}
+
+.search form{
+    display: flex;
+    flex-direction: row;
+}
+.search input{
+    padding: 0 44px 0 16px;
+    border-radius: 30px 0 0 30px;    
+    cursor: text;
+}
+
+.search button{
+    height:6vh;  
+}
+
+.authe button{
+    border: solid 1px white;
+    border-radius: 20px;
+    width: 90px;
+    height: 5vh;
+    background-color: #007BFF;
+    text-transform: uppercase;
+}
+
+.authe a{
+    color: white;
+    text-decoration: none;
+}

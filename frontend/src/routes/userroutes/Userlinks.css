@@ -1,0 +1,18 @@
+
+.userlinks{
+    display: flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap: 50px;
+    margin: 20px 20px 10px 90px;
+}
+
+.userlinks a{
+    color:inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.userlinks a:hover{
+    text-decoration: underline;
+}

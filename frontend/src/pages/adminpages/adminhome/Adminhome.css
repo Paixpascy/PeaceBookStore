@@ -1,0 +1,48 @@
+
+
+.admincontent{
+    display: flex;
+    gap:150px;
+    margin:50px 0;
+    background-color: gray;
+}
+
+.admincontent a{
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.adminsidebar{
+    box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+    width: 220px;
+    padding: 30px;
+    background-color: lightgray;
+    color: black;
+}
+ .admincards{
+    display: grid;
+    grid-template-columns: repeat(2,3fr);
+    gap: 200px;
+    margin: 30px;
+}
+
+.admincards img{
+    width: 100%;
+    border-radius: 10px;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.adminusers, .adminorders,
+.adminbooklist, .booksadd{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px white;
+    padding: 50px;
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.3);
+    background-color: white;
+    color: black;
+}

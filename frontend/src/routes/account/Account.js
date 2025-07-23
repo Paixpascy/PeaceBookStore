@@ -1,12 +1,18 @@
 import axios from 'axios'
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../../context/AppContext'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
+import './Account.css'
+import Profile from './Profile'
+import { IoMdLogOut } from "react-icons/io";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import Userlinks from '../userroutes/Userlinks'
 
 const Account = () => {
     const{setisLoggedin,isLoggedIn,userData}=useContext(AppContext)
+   //const[dropDown,setDropdown]=useState(false)
 
     const navigate=useNavigate()
     const logOut=async()=>{
@@ -62,35 +68,54 @@ const Account = () => {
   return (
     isLoggedIn?(
     <>
+    <Userlinks/>
+    <div className='account'>
+        <div className='sidebar'>
+
+        <div className='sidelink'>
+            <img src='/media/ordersimg.jpg' alt='' height='50px'/>
+            <Link to='/cart'>cart</Link>
+        </div>
+        <div className='sidelink'>
+            <img src='/media/productimg.jpg' alt='' height='50px'/>
+            <Link to='/myorders'>orders</Link>
+        </div>
+       {/*} <div className='cart'>
+            <Link to='/profile'>profile</Link>
+        </div>*/}
+        <div className='sidelink'>
+            <IoMdLogOut onClick={logOut} size='3rem' color='blue'/>logout
+        </div>
+        <div className='sidelink'>
+            <RiDeleteBin6Line onClick={unRegister} size='3rem' color='red'/>delete account
+        </div>
+        </div>
+        <div className='acountmain'>
         <div className='greeting'>
             <h2> hello {isLoggedIn? userData?.name: 'user'}</h2>
         </div>
-        <div className='cart'>
-            <button><Link to='/cart'>cart</Link></button>
+            <Profile/>
         </div>
-        <div className='cart'>
-            <button><Link to='/myorders'>orders</Link></button>
-        </div>
-        <div className='cart'>
-            <button><Link to='/profile'>profile</Link></button>
-        </div>
-        <div className='logout'>
-            <button onClick={logOut}>logout</button>
-        </div>
-        <div className='logout'>
-            <button onClick={unRegister}>delete account</button>
-        </div>
+    </div>    
     </>
     ):(
-        <div className='notlogged'>
-            <div className='cart'>
+        
+        <div className='noaccount'>
+            <Userlinks/>
+            <div className='noaccountlink'>
+                
+            <div className='noaccountcard'>
+                <img src='/media/productimg.jpg' alt='' />
                 <button><Link to='/cart'>cart</Link></button>
             </div>
-            <div className='cart'>
+            <div className='noaccountcard'>
+                <img src='/media/ordersimg.jpg' alt='' />
                 <button><Link to='/myorders'>orders</Link></button>
             </div>
-            <div className='cart'>
+            <div className='noaccountcard'>
+                <img src='/media/loginimg.webp' alt='' />
                 <button><Link to='/login'>login</Link></button>
+            </div>
             </div>
         </div>
     )

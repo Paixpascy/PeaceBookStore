@@ -2,12 +2,15 @@ import React, { useContext } from 'react'
 import { AppContext } from '../../../context/AppContext'
 import { Link } from 'react-router-dom'
 import Item from './Item'
+import './Bookscategories.css'
+import Userlinks from '../../../routes/userroutes/Userlinks'
 
 const Bookscategories = (props) => {
   const{allBooks}=useContext(AppContext)
 
   return (
     <>
+    <Userlinks/>
     <div className='categorymenu'>
       <div className='categoryname'>
         <h2>{props.category} category</h2>
